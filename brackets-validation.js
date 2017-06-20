@@ -1,7 +1,24 @@
-var regex = /(\{|\(|\[|\]|\}|\(|\))/g;
-var output = [];
+const regex = /(\{|\(|\[|\]|\}|\))/g; //gloabl search using regex to check for open and closed brackets.
+const fs = require("fs");
+const readline = require('readline'); // For user prompt to allow file path input
+const rl = readline.createInterface({
+    input: process.stdin, 
+    output: process.stdout
+});
+
+function main() {
+    rl.question("Provide Relative/Absolute Path here(Ctrl + C to exit):- ",(answer)=>{
+        if (answer.includes(".js")||answer.includes(".txt")||answer.includes(".md")){
+            findFile(answer);
+        } else {
+            console.log("File unsupported or invalid!");
+            main();
+        }
+    });
+}
 
 function read(inp) {
+    var output = [];
     if (Array.isArray(inp)){
         for (var i=0;i<inp.length;i++) {
             var elements = inp[i].match(regex);
@@ -30,7 +47,25 @@ function validate(el) {
         }
         stack.push(el[j]);
     }
+    console.log(stack);
     return stack.length == 0?true:false;
 } 
 
-read(["{{()czx}}[]dfs{{[(aa)<>]}}","aa{ab[c<>]","{ll()}"]);
+function findFile(file){
+    fs.readFile(file,(err, data)=>{
+        if (err) throw err;
+        processFile(data.toString());
+    })
+}
+
+function processFile(data){
+    var _temp = [];
+    _temp.push(data);
+    read(_temp);
+    main();
+}
+
+main();
+
+
+

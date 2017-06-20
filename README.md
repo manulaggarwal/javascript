@@ -1,4 +1,4 @@
-# javascript
+# Javascript
 Problem statements with JS solution.
 # Brackets-Validation:
 
@@ -8,8 +8,8 @@ Example:-
 
 The read() takes an string array input. 
 Input:-
-["{{zz}}","[]c{}<>()","{{[[<ff>({})]]}}","{{]]{}<>","{]}"]
+<b>["{{zz}}","[]c{}<>()","{{[[<ff>({})]]}}","{{]]{}<>","{]}"]</b>
 
 Output:-
-["YES","YES","YES","NO","NO"]
+<b>["YES","YES","YES","NO","NO"]</b>
 
