@@ -1,4 +1,4 @@
-var regex = /(\{|\(|\[|\<|\>|\]|\}|\(|\))/g;
+var regex = /(\{|\(|\[|\]|\}|\(|\))/g;
 var output = [];
 
 function read(inp) {
@@ -24,10 +24,6 @@ function validate(el) {
                 continue;
             }
             if ((el[j].charCodeAt(0)) == 93 && (stack[stack.length-1].charCodeAt(0)) == 91){
-                stack.pop();
-                continue;
-            }
-            if ((el[j].charCodeAt(0)) == 62 && (stack[stack.length-1].charCodeAt(0)) == 60){
                 stack.pop();
                 continue;
             }
