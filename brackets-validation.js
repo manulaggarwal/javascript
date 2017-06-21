@@ -21,7 +21,7 @@ function read(inp) {
     var output = [];
     if (Array.isArray(inp)){
         for (var i=0;i<inp.length;i++) {
-            var elements = inp[i].match(regex);
+            var elements = inp[i].replace(/\/\/.*/gm).match(regex);
             validate(elements)?output.push("YES"):output.push("NO");
         }
     }
