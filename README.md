@@ -1,2 +1,2 @@
 # javascript
-Problem statements with JS solution.
+# Codechef Problems
