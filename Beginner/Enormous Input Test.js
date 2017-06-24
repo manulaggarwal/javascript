@@ -1,5 +1,5 @@
 const readline = require('readline');
-var count = 0;
+
 function main(msg){
     console.log(msg);
     const rl = readline.createInterface({
@@ -13,9 +13,8 @@ function main(msg){
             console.log("Length greater than 2! reducing...");
             input = reduce(input,2).map((v)=>+v);
         } else if (input.length < 2){
-            console.log("Insufficient inputs");
             rl.close();
-            main("Invalid input!");
+            main("Insufficient inputs");
         }
         if (input.includes(NaN)){
             rl.close();
@@ -23,11 +22,16 @@ function main(msg){
         }
         rl.on("line",(val)=>{
             console.log("Input entered! ", val.split(" "));
-            if (val.split(" ").length != 1) values.push(reduce(val.split(" ")),1);
-            values.push(val);
-            values.map((v)=>+v);
+            if (val.split(" ").length != 1) {
+                console.log("Length greater than 1! reducing...");
+                val = reduce(val.split(" "),1);
+                values.push(val);
+            } else values.push(val);
+            values = values.map((v)=>+v);
+            console.log("Values ",values);
             if (values.includes(NaN)){
                 rl.close();
+                values = [];
                 main("Only numeric values are accepted!");
             }
             if (values.length == input[0]){
@@ -41,6 +45,6 @@ function main(msg){
 function reduce(inp,len){
     inp.splice(inp.length - 1,1)
     console.log(inp);
-    return inp.length == len ? inp: reduce(inp);
+    return inp.length == len ? inp: reduce(inp,len);
 }
 main("");
