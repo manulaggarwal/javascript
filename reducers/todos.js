@@ -15,7 +15,7 @@ const todo = (action, state = {}) => {
     }
 }
 
-const todos = (action, state = []) => {
+const todos = (action = {}, state = []) => {
     switch (action.type) {
         case 'ADD_TODO':
             return [
