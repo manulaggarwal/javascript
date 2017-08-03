@@ -11,20 +11,22 @@ const todo = (action, state = {}) => {
             return Object.assign({}, state, {
                 completed: !state.completed
             })
-        default: return state
+        default: return state;
     }
 }
 
-const todos = (action = {}, state = []) => {
+const todos = (state = [], action = {}) => {
+    console.log("TODO Reducer called ");
+    console.log("State recieved:- ", state, "Action:- ", action);
     switch (action.type) {
         case 'ADD_TODO':
             return [
                 ...state,
-                todo(undefined, action)
-            ]
+                todo(action, state)
+            ];
         case 'TOGGLE_TODO':
-            return state.map(t=> todo(t, action))
-        default: return state
+            return state.map(t=> todo(action, t))
+        default: return state;
     }
 }
 export default todos;

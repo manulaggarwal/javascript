@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Link = ({active, children, onClick}) => {
-    if (active) return <span>{children}</span>
+    console.log("From Link Component 'Active' value:- ", active);
+    if (active) return <span>{children}</span>;
     return (
         <a href="#"
             onClick={e=>{
@@ -12,7 +13,7 @@ const Link = ({active, children, onClick}) => {
         >
             {children}
         </a>
-    )
+    );
 }
 
 Link.propTypes = {
