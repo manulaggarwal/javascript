@@ -10,7 +10,6 @@ let AddTodo = ({dispatch}) => {
                 e.preventDefault();
                 if (!input.value.trim()) return;
                 dispatch(addTodo(input.value));
-                console.log("Action Dispatched from AddTodo container");
                 input.value = '';
             }}>
                 <input ref={node=>{input=node}} />

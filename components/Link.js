@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Link = ({active, children, onClick}) => {
-    console.log("From Link Component 'Active' value:- ", active);
     if (active) return <span>{children}</span>;
     return (
         <a href="#"

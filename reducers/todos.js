@@ -16,8 +16,6 @@ const todo = (action, state = {}) => {
 }
 
 const todos = (state = [], action = {}) => {
-    console.log("TODO Reducer called ");
-    console.log("State recieved:- ", state, "Action:- ", action);
     switch (action.type) {
         case 'ADD_TODO':
             return [

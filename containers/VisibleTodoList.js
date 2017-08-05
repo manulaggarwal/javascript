@@ -3,8 +3,6 @@ import {toggleTodo} from '../actions';
 import TodoList from '../components/TodoList';
 
 const getVisibleTodos = (todos, filter) => {
-    console.log("VisibleTodoList Container called/state update");
-    console.log("todos:--- ", todos, "filter---- ", filter);
     switch (filter) {
         case 'SHOW_ALL': return todos
         case 'SHOW_COMPLETED': return todos.filter(t=>t.completed)
@@ -13,7 +11,6 @@ const getVisibleTodos = (todos, filter) => {
 }
 
 const mapStateToProps = state => {
-    console.log("VisibleTodoList state:- ", state);
     return {
         todos: getVisibleTodos(state.todos, state.visibilityFilter)
     };

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Todo from './Todo';
 
 const TodoList = ({todos, onTodoClick}) =>{ 
-    console.log("TodoList Component Todos-------:- ", todos);
     return (
     <ul>
         {
